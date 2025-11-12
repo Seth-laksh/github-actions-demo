@@ -1,0 +1,41 @@
+---
+name: "Simple github action workflow script"
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+
+  image-build-job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: "Date command"
+        run: date
+
+      - name: "Getting os release"
+        run: cat /etc/os-release
+      
+      - name: "getting memory details"
+        run: free -m
+      
+      - name: "current working directory"  
+        run: |
+          pwd
+          ls -al
+
+      - name: "Installing packer"
+        run: |
+          wget https://releases.hashicorp.com/packer/1.14.2/packer_1.14.2_linux_amd64.zip
+          unzip packer_1.14.2_linux_amd64.zip  
+          pwd
+          ls -al
+
+
+
+
+
